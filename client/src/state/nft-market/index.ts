@@ -1,5 +1,6 @@
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { BigNumber, Contract, ethers } from "ethers";
+import { from } from "form-data";
 import { CreationValues } from "modules/CreationPage/CreationForm";
 import useSigner from "state/signer";
 import NFT_MARKET from "../../../artifacts/contracts/NFTMarket.sol/NFTMarket.json";
@@ -16,7 +17,6 @@ const useNFTMarket = () => {
   const ownedNFTs = useOwnedNFTs();
   const ownedListedNFTs = useOwnedListedNFTs();
   const listedNFTs = useListedNFTs();
-
   const createNFT = async (values: CreationValues) => {
     try {
       const data = new FormData();
@@ -60,6 +60,18 @@ const useNFTMarket = () => {
     });
     await transaction.wait();
   };
+
+  // const getAllTransactions = () => {
+  //   signer?.getAddress().then(() => {
+  //     const currentBlock = signer.provider.blockNumber;
+  //     signer?.getTransactionCount(currentBlock).then(() => {
+  //       signer.provider.getBlock(currentBlock).then((myBlock) => {
+  //         myBlock.transactions.map((transaction) => {
+  //         });
+  //       });
+  //     });
+  //   });
+  // };
 
   return {
     createNFT,
