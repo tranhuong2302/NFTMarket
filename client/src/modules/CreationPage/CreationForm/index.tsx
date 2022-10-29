@@ -35,10 +35,12 @@ const CreationForm = ({ onSubmit }: CreationFormProps) => {
       validateOnMount={false}
       onSubmit={onSubmit}
     >
-      <Form className="flex">
+      <Form className="flex" style={{ justifyContent: "center", alignItems: "center", height: "100vh" }}>
         <ImagePicker name="image" className="mr-4" />
-        <div className="flex w-64 flex-col space-y-1">
+        <div className="flex h-96 flex-col space-y-1" style={{ width: "35rem" }}>
+          <p className="text-lg">Name Product: </p>
           <FormikInput name="name" placeholder="name" />
+          <p className="text-lg">Description Product: </p>
           <TextArea name="description" placeholder="description..." />
           <SubmitButton />
         </div>

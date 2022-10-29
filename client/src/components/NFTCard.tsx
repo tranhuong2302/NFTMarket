@@ -112,7 +112,7 @@ const NFTCard = (props: NFTCardProps) => {
       className={classNames(
         "flex w-72 flex-shrink-0 flex-col overflow-hidden rounded-xl border font-semibold shadow-sm",
         className
-      )}
+      )} style={{height:"34rem", backgroundColor:"white"}}
     >
       {meta ? (
         <img
@@ -125,17 +125,20 @@ const NFTCard = (props: NFTCardProps) => {
           loading...
         </div>
       )}
-      <div className="flex flex-col p-4">
+      <div className="flex flex-col p-4" style={{height:"10rem"}}>
         <p className="text-lg">{meta?.name ?? "..."}</p>
-        <span className="text-sm font-normal">
+        <span className="text-sm font-normal card-description">
           {meta?.description ?? "..."}
         </span>
         <AddressAvatar address={nft.owner} />
       </div>
       <button
-        className="group flex h-16 items-center justify-center bg-black text-lg font-semibold text-white"
+        className="group flex h-16 items-center justify-center bg-black text-lg font-semibold text-white btn-sell"
         onClick={onButtonClick}
         disabled={loading}
+        style={{
+          borderRadius:"0.75rem",
+        }}
       >
         {loading && "Busy..."}
         {!loading && (

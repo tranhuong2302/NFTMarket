@@ -5,8 +5,48 @@
 html,
 body {
   @apply m-0 h-screen w-screen overflow-hidden p-0;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #ebebeb;
+  color: #353535;
 }
 
 #__next {
   @apply h-full w-full;
+}
+
+.text-white {
+  color: #ffd700;
+}
+
+.card-description {
+  max-height: 4rem;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-sell {
+  border-radius: 0.75rem;
+}
+
+.moeda-text {
+  margin-top: 32px;
+  text-align: center;
+  font-weight: 900;
+    color: #ffd700;
+    font-size: 50px;
+}
+
+.moeda-input {
+  padding-left: 16px;
+  margin: 30px 0;
+  width: 500px;
+  outline: none;
+  height: 50px;
+  border: 2px solid transparent;
+  border-radius: 19px;
+  border-color: #ffd700;
+  background-color: #fff;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
 }

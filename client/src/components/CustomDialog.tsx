@@ -19,7 +19,13 @@ const CustomDialog = (props: DialogProps) => {
       onClose={onClose}
       className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto"
     >
-      <div className="relative z-20 flex flex-col rounded-xl bg-white p-4">
+      <div className="relative z-20 flex flex-col rounded-xl bg-white p-4" 
+      style={{
+        width: "600px", 
+        height:"250px", 
+        justifyContent:"space-around",
+        padding: "30px 20px"
+        }}>
         <button onClick={onClose} className="absolute right-4 top-4">
           <XIcon className="h-5 w-5" />
         </button>

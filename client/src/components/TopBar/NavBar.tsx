@@ -9,7 +9,8 @@ const NavBar = () => {
       <NavBarItem href="/">Home</NavBarItem>
       <NavBarItem href="/owned">Owned</NavBarItem>
       <NavBarItem href="/create">Create</NavBarItem>
-      <NavBarItem href="/profile">Profile</NavBarItem>
+      <NavBarItem href="/historytransaction">History Transaction</NavBarItem>
+      <NavBarItem href="/chart">Chart</NavBarItem>
     </nav>
   );
 };
