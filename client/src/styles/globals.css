@@ -26,8 +26,22 @@ body {
   text-overflow: ellipsis;
 }
 
+.btn-create {
+  transition: all .5s;
+}
+
+.btn-create:hover {
+  color: #353535;
+  background-color: #ffd700;
+}
+
 .btn-sell {
   border-radius: 0.75rem;
+  transition: all .5s;
+}
+.btn-sell:hover {
+  color: #353535;
+  background-color: #ffd700;
 }
 
 .moeda-text {

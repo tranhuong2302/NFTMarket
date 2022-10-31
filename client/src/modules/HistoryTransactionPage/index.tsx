@@ -23,6 +23,11 @@ const HistoryTransactionPage = () => {
   }, [transactions]);
   console.log(address);
   console.log(transactions);
+  const convertFunction = (unix_function: any) => {
+    if(unix_function.includes("create")) return "Create";
+    else if(unix_function.includes("buy")) return "Buy";
+    else if(unix_function.includes("list")) return "List";
+  }
   return (
     <div className={classNames("flex h-full w-full flex-col")}>
       <table>
@@ -31,24 +36,26 @@ const HistoryTransactionPage = () => {
             borderBottom: "1px solid #d7d7d7",
             height: "80px",
           }}>
-            <th>TxnHash</th>
-            <th>Age</th>
+            {/* <th>TxnHash</th> */}
+            <th>Number</th>
+            <th>Function</th>
+            <th>Time</th>
             <th>From</th>
+            <th>ETH</th>
             <th>To</th>
-            <th>Token ID</th>
-            <th>Token</th>
           </tr>
         </thead>
         <tbody>
           {transactions && (
-            transactions.map((transaction: any) => {
+            transactions.map((transaction: any, index: number) => {
               return (
-                <tr style={{ borderTop: "1px solid #d7d7d7", height: "40px" }}>
-                  <td> {transaction.hash}</td>
+                <tr key={index} style={{ borderTop: "1px solid #d7d7d7", height: "40px", textAlign:"center" }}>
+                  <td> {index + 1}</td>
+                  <td> {convertFunction(transaction.functionName)}</td>
+                  <td style={{width: "100px"}}> {convertTimeStamp(transaction.timeStamp)}</td>
                   <td> {transaction.from}</td>
-                  <td> {transaction.to}</td>
                   <td> {ethers.utils.formatEther(transaction.value)} ETH</td>
-                  <td>Time: {convertTimeStamp(transaction.timeStamp)}</td>
+                  <td> {transaction.to}</td>
                 </tr>
               );
             }))}

@@ -112,13 +112,13 @@ const NFTCard = (props: NFTCardProps) => {
       className={classNames(
         "flex w-72 flex-shrink-0 flex-col overflow-hidden rounded-xl border font-semibold shadow-sm",
         className
-      )} style={{height:"34rem", backgroundColor:"white"}}
+      )} style={{height:"29rem", backgroundColor:"white"}}
     >
       {meta ? (
         <img
           src={meta?.imageURL}
           alt={meta?.name}
-          className="h-80 w-full object-cover object-center"
+          className="h-60 w-full object-cover object-center"
         />
       ) : (
         <div className="flex h-80 w-full items-center justify-center">
@@ -136,9 +136,6 @@ const NFTCard = (props: NFTCardProps) => {
         className="group flex h-16 items-center justify-center bg-black text-lg font-semibold text-white btn-sell"
         onClick={onButtonClick}
         disabled={loading}
-        style={{
-          borderRadius:"0.75rem",
-        }}
       >
         {loading && "Busy..."}
         {!loading && (
