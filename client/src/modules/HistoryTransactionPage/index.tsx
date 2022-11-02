@@ -13,6 +13,9 @@ const HistoryTransactionPage = () => {
     return formattedTime;
   };
   const { address } = useSigner();
+  // const [dateFilter, setDateFilter] = useState([]);
+  let minDate = new Date;
+  let maxDate = new Date;
   const [transactions, setTransactions] = useState([] as any);
   useEffect(() => {
     fetch(
@@ -20,50 +23,71 @@ const HistoryTransactionPage = () => {
     )
       .then((response) => response.json())
       .then((data) => setTransactions(data.result))
-  }, [transactions]);
-  console.log(address);
-  console.log(transactions);
+  }, []);
+  // console.log(dateFilter);
   const convertFunction = (unix_function: any) => {
-    if(unix_function.includes("create")) return "Create";
-    else if(unix_function.includes("buy")) return "Buy";
-    else if(unix_function.includes("list")) return "List";
+    if (unix_function.includes("create")) return "Create";
+    else if (unix_function.includes("buy")) return "Buy";
+    else if (unix_function.includes("list")) return "List";
   }
+  const handleClick = () => {
+    console.log(minDate);
+  };
   return (
-    <div className={classNames("flex h-full w-full flex-col")}>
-      <table>
-        <thead>
-          <tr style={{
-            borderBottom: "1px solid #d7d7d7",
-            height: "80px",
-          }}>
-            {/* <th>TxnHash</th> */}
-            <th>Number</th>
-            <th>Function</th>
-            <th>Time</th>
-            <th>From</th>
-            <th>ETH</th>
-            <th>To</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions && (
-            transactions.map((transaction: any, index: number) => {
-              return (
-                <tr key={index} style={{ borderTop: "1px solid #d7d7d7", height: "40px", textAlign:"center" }}>
-                  <td> {index + 1}</td>
-                  <td> {convertFunction(transaction.functionName)}</td>
-                  <td style={{width: "100px"}}> {convertTimeStamp(transaction.timeStamp)}</td>
-                  <td> {transaction.from}</td>
-                  <td> {ethers.utils.formatEther(transaction.value)} ETH</td>
-                  <td> {transaction.to}</td>
-                </tr>
-              );
-            }))}
-          {!transactions && (
-            <p>loading</p>
-          )}
-        </tbody>
-      </table>
+    <div className={classNames("flex h-full w-full flex-col")} style={{ display: "flex", flexDirection: "column" }}>
+      <div>
+        <input
+          className=""
+          type="date"
+          value="hiiii"
+        />
+        <input
+          className=""
+          type="date"
+        // ref={(node: any) => setDateFilter(node, ...dateFilter)}
+        />
+        <button key="submit" className=""
+          onClick={handleClick}
+        >
+          Filter Date
+        </button>
+      </div>
+      <div className={classNames("flex h-full w-full flex-col")}>
+        <table>
+          <thead>
+            <tr style={{
+              borderBottom: "1px solid #d7d7d7",
+              height: "80px",
+            }}>
+              {/* <th>TxnHash</th> */}
+              <th>Number</th>
+              <th>Function</th>
+              <th>Time</th>
+              <th>From</th>
+              <th>ETH</th>
+              <th>To</th>
+            </tr>
+          </thead>
+          <tbody>
+            {transactions && (
+              transactions.map((transaction: any, index: number) => {
+                return (
+                  <tr key={index} style={{ borderTop: "1px solid #d7d7d7", height: "40px", textAlign: "center" }}>
+                    <td> {index + 1}</td>
+                    <td> {convertFunction(transaction.functionName)}</td>
+                    <td style={{ width: "100px" }}> {convertTimeStamp(transaction.timeStamp)}</td>
+                    <td> {transaction.from}</td>
+                    <td> {ethers.utils.formatEther(transaction.value)} ETH</td>
+                    <td> {transaction.to}</td>
+                  </tr>
+                );
+              }))}
+            {!transactions && (
+              <p>loading</p>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
