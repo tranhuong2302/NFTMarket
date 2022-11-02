@@ -71,7 +71,6 @@ body {
   text-align: center;
   font-weight: 600;
   color: #353535;
-  /* font-size: 30px; */
 }
 
 .his-transaction-input {
@@ -85,4 +84,17 @@ body {
   border-color: #353535;
   background-color: #fff;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.text-address {
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all .5s;
+}
+.text-address:hover {
+  word-wrap: break-word;
+  white-space: normal;
+  height: 70px;
 }

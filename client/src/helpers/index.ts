@@ -9,3 +9,12 @@ export const minifyAddress = (address: string) => {
   const end = address.substring(address.length - 5);
   return `${start}...${end}`;
 };
+
+export const convertTimeStamp = (unix_timestamp: number) => {
+  var date = new Date(unix_timestamp * 1000);
+  var hours = date.getHours();
+  var minutes = "0" + date.getMinutes();
+  var seconds = "0" + date.getSeconds();
+  var formattedTime = date.toLocaleDateString() + " " + hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+  return formattedTime;
+};
