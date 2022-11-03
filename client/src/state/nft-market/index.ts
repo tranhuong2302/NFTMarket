@@ -1,6 +1,6 @@
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { BigNumber, Contract, ethers } from "ethers";
-import { from } from "form-data";
+import { toast } from "react-toastify";
 import { CreationValues } from "modules/CreationPage/CreationForm";
 import useSigner from "state/signer";
 import NFT_MARKET from "../../../artifacts/contracts/NFTMarket.sol/NFTMarket.json";
@@ -61,23 +61,29 @@ const useNFTMarket = () => {
     await transaction.wait();
   };
 
-  // const getAllTransactions = () => {
-  //   signer?.getAddress().then(() => {
-  //     const currentBlock = signer.provider.blockNumber;
-  //     signer?.getTransactionCount(currentBlock).then(() => {
-  //       signer.provider.getBlock(currentBlock).then((myBlock) => {
-  //         myBlock.transactions.map((transaction) => {
-  //         });
-  //       });
-  //     });
-  //   });
-  // };
-
+  const startPayment = async ({ setError, setTxs, ether, addr }: any) => {
+    try {
+      await window.ethereum.send("eth_requestAccounts");
+      ethers.utils.getAddress(addr);
+      const tx = await signer?.sendTransaction({
+        to: addr,
+        value: ethers.utils.parseEther(ether),
+      });
+      toast.success("You send the transaction success");
+      // console.log({ ether, addr });
+      // console.log("tx", tx);
+      setTxs([tx]);
+    } catch (err: any) {
+      toast.warn("Something wrong!");
+      setError(err.message);
+    }
+  };
   return {
     createNFT,
     listNFT,
     cancelListing,
     buyNFT,
+    startPayment,
     ...ownedNFTs,
     ...ownedListedNFTs,
     ...listedNFTs,

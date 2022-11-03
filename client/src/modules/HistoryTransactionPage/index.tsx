@@ -8,7 +8,7 @@ const HistoryTransactionPage = () => {
   const { address } = useSigner();
   const [search, setSearch] = useState("");
   const [copySuccess, setCopySuccess] = useState("");
-  const [transactions, setTransactions] = useState([] as any);
+  const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     fetch(
