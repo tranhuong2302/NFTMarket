@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const CryptoChart = () => {
+const CryptoRate = () => {
     const [moedas, setMoedas] = useState([]);
     const [search, setSearch] = useState("");
     useEffect(() => {
@@ -88,4 +88,4 @@ const CryptoChart = () => {
 };
 
 
-export default CryptoChart;
+export default CryptoRate;

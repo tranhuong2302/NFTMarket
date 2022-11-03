@@ -8,9 +8,9 @@ const NavBar = () => {
     <nav className="absolute bottom-1/2 right-1/2 flex translate-y-1/2 translate-x-1/2 transform justify-center">
       <NavBarItem href="/">Home</NavBarItem>
       <NavBarItem href="/owned">Owned</NavBarItem>
-      <NavBarItem href="/create">Create Product</NavBarItem>
+      <NavBarItem href="/create">Create NFT</NavBarItem>
       <NavBarItem href="/historytransaction">History Transaction</NavBarItem>
-      <NavBarItem href="/chart">Exchange Rate Table</NavBarItem>
+      <NavBarItem href="/rate">Cryptocurrency rates</NavBarItem>
     </nav>
   );
 };
