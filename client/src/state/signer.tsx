@@ -27,7 +27,16 @@ export const SignerProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const web3modal = new Web3Modal();
     if (web3modal.cachedProvider) connectWallet();
-    window.ethereum.on("accountsChanged", connectWallet);
+    if(window.ethereum) {
+      window.ethereum.on("accountsChanged", connectWallet);
+    } else {
+      if(confirm("Install Metamask Extention!!")) {
+        window.open(
+          'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn'
+        )
+        // window.location.href = 'https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn'
+      }
+    }
   }, []);
 
   const connectWallet = async () => {
