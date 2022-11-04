@@ -29,7 +29,7 @@ const SendTransactionPage = () => {
   };
 
   return (
-    <form className="m-4" onSubmit={handleSubmit}>
+    <form className="m-4" onSubmit={handleSubmit} style={{width:"100%"}}>
       <div className="credit-card mx-auto w-full rounded-xl bg-white shadow-lg sm:w-auto lg:w-1/2">
         <main className="mt-4 p-4">
           <h1 className="text-center text-xl font-semibold text-gray-700">

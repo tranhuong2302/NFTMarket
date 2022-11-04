@@ -33,6 +33,7 @@ const NavBarItem = (props: NavbarItemProps) => {
         className={classNames("rounded-lg px-4 py-2 font-semibold", {
           "bg-black text-white": isActive,
         })}
+        style={{textAlign:"center"}}
       >
         {children}
       </a>
