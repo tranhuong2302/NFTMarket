@@ -22,6 +22,7 @@ const HistoryTransactionPage = () => {
     if (unix_function.includes("create")) return "Create";
     else if (unix_function.includes("buy")) return "Buy";
     else if (unix_function.includes("list")) return "List";
+    else if (unix_function.includes("cancelListing")) return "Cancel List";
   };
 
   const handleChange = (e: any) => {
@@ -96,7 +97,7 @@ const HistoryTransactionPage = () => {
                     <td>
                       <button
                         type="button"
-                        className="duration-20 text-address rounded leading-tight transition ease-in-out"
+                        className="text-address rounded leading-tight transition duration-150 ease-in-out"
                         data-bs-toggle="tooltip"
                         data-bs-placement="bottom"
                         title="Click to copy"

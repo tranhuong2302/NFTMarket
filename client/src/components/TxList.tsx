@@ -5,7 +5,7 @@ export default function TxList({ txs }: any) {
       {txs.map((item : any) => (
         <div key={item} className="alert alert-info mt-5">
           <div className="flex-1">
-            <label>{item.hash}</label>
+            <label style={{wordWrap:"break-word", textTransform:"capitalize"}}>{item.hash}</label>
           </div>
         </div>
       ))}

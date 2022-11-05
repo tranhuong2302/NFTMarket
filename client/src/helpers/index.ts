@@ -18,3 +18,9 @@ export const convertTimeStamp = (unix_timestamp: number) => {
   var formattedTime = date.toLocaleDateString() + " " + hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
   return formattedTime;
 };
+
+export const getResult = (err: string) => {
+  var position = err.indexOf("(");
+  err = err.substring(0, position);
+  return err;
+}

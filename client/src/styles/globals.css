@@ -91,10 +91,13 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  transition: all .5s;
+  transition: all 2s;
 }
 .text-address:hover {
   word-wrap: break-word;
   white-space: normal;
   height: 70px;
+}
+.text-input {
+  border: 1.5px solid #353535;
 }

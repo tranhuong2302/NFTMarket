@@ -9,9 +9,9 @@ const NavBar = () => {
       <NavBarItem href="/">Home</NavBarItem>
       <NavBarItem href="/owned">Owned</NavBarItem>
       <NavBarItem href="/create">Create NFT</NavBarItem>
-      <NavBarItem href="/send">Send Transaction</NavBarItem>
-      <NavBarItem href="/historytransaction">History Transaction</NavBarItem>
-      <NavBarItem href="/rate">Cryptocurrency Rates</NavBarItem>
+      <NavBarItem href="/send">Transfers</NavBarItem>
+      <NavBarItem href="/historytransaction">History <br/> Transaction</NavBarItem>
+      <NavBarItem href="/rate">Cryptocurrency <br/> Rates</NavBarItem>
     </nav>
   );
 };
