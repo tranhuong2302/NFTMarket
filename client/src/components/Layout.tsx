@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>Market Place</title>
+        <title>Crypto Market</title>
       </Head>
       <div className="relative flex h-full w-full flex-col pt-20">
         <TopBar />

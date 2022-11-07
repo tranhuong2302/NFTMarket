@@ -7,7 +7,11 @@ const TopBar = () => {
     <div className="fixed top-0 w-full">
       <div className="relative flex w-full items-center px-4  py-4 shadow">
         <Link href="/">
-          <a className="text-lg font-bold">Marketplace</a>
+          <a className="text-lg font-bold flex" style={{justifyContent:"center", alignItems:"center"}}>
+            <img src="crypto.png" alt="Crypto Market" style={{height:"50px"}} />
+            &nbsp;
+            Crypto Market
+          </a>
         </Link>
         <div className="flex-grow">
           <NavBar />

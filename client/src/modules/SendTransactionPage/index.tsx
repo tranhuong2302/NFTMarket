@@ -36,7 +36,7 @@ const SendTransactionPage = () => {
         style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}
       >
         <main className="mt-4 p-4">
-          <h1 className="text-center text-xl font-semibold text-gray-700" style={{fontSize:"1.5rem"}}>
+          <h1 className="text-center text-xl font-semibold text-gray-700">
             Send ETH payment
           </h1>
           <div style={{ borderTop: "2px solid #353535", margin: "20px" }}></div>
@@ -63,9 +63,9 @@ const SendTransactionPage = () => {
         </main>
         <div className="px-4">
           <ErrorMessage message={getResult(error)} />
-          <TxList txs={txs} />
+          {/* <TxList txs={txs} /> */}
         </div>
-        <footer className="px-4 py-8">
+        <footer className="p-4">
           <button
             type="submit"
             className="btn btn-primary h-12 rounded-lg text-xl font-semibold text-white bg-black px-4 py-2 submit-button w-full focus:outline-none focus:ring btn-create"
