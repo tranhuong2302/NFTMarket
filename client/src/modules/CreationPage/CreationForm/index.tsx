@@ -35,14 +35,19 @@ const CreationForm = ({ onSubmit }: CreationFormProps) => {
       validateOnMount={false}
       onSubmit={onSubmit}
     >
-      <Form className="flex" style={{ justifyContent: "center", alignItems: "center", height: "100vh" }}>
-        <ImagePicker name="image" className="mr-4" />
-        <div className="flex h-96 flex-col space-y-1" style={{ width: "35rem" }}>
-          <p className="text-lg">Name: </p>
-          <FormikInput name="name" placeholder="name" />
-          <p className="text-lg">Description: </p>
-          <TextArea name="description" placeholder="description..." />
-          <SubmitButton />
+      <Form className="flex-col">
+        <div>
+          <h1 className="w-full text-center text-xl font-semibold py-4">Create NFT</h1>
+        </div>
+        <div className="flex w-full justify-items-center" style={{ justifyContent: "center"}}>
+          <ImagePicker name="image" className="mr-4" />
+          <div className="flex h-96 flex-col space-y-1" style={{ width: "35rem" }}>
+            <p className="text-lg">Name: </p>
+            <FormikInput name="name" placeholder="name" />
+            <p className="text-lg">Description: </p>
+            <TextArea name="description" placeholder="description..." />
+            <SubmitButton />
+          </div>
         </div>
       </Form>
     </Formik>

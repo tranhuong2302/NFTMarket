@@ -112,7 +112,7 @@ const NFTCard = (props: NFTCardProps) => {
       className={classNames(
         "flex w-72 flex-shrink-0 flex-col overflow-hidden rounded-xl border font-semibold shadow-sm",
         className
-      )} style={{height:"29rem", backgroundColor:"white"}}
+      )} style={{ height: "29rem", backgroundColor: "white" }}
     >
       {meta ? (
         <img
@@ -125,37 +125,41 @@ const NFTCard = (props: NFTCardProps) => {
           loading...
         </div>
       )}
-      <div className="flex flex-col p-4" style={{height:"10rem"}}>
+      <div className="flex flex-col px-4 py-2" style={{ height: "7rem" }}>
         <p className="text-lg">{meta?.name ?? "..."}</p>
         <span className="text-sm font-normal card-description">
           {meta?.description ?? "..."}
         </span>
-        <AddressAvatar address={nft.owner} />
       </div>
-      <button
-        className="group flex h-16 items-center justify-center bg-black text-lg font-semibold text-white btn-sell"
-        onClick={onButtonClick}
-        disabled={loading}
-      >
-        {loading && "Busy..."}
-        {!loading && (
-          <>
-            {!forSale && "SELL"}
-            {forSale && owned && (
+      <div className="flex-col">
+        <div className="px-4">
+          <AddressAvatar address={nft.owner} />
+          <button
+            className="group my-2 h-12 items-center w-full justify-center bg-black text-lg font-semibold text-white btn-sell"
+            onClick={onButtonClick}
+            disabled={loading}
+          >
+            {loading && "Busy..."}
+            {!loading && (
               <>
-                <span className="group-hover:hidden">{nft.price} ETH</span>
-                <span className="hidden group-hover:inline">CANCEL</span>
+                {!forSale && "SELL"}
+                {forSale && owned && (
+                  <>
+                    <span className="group-hover:hidden">{nft.price} ETH</span>
+                    <span className="hidden group-hover:inline">CANCEL</span>
+                  </>
+                )}
+                {forSale && !owned && (
+                  <>
+                    <span className="group-hover:hidden">{nft.price} ETH</span>
+                    <span className="hidden group-hover:inline">BUY</span>
+                  </>
+                )}
               </>
             )}
-            {forSale && !owned && (
-              <>
-                <span className="group-hover:hidden">{nft.price} ETH</span>
-                <span className="hidden group-hover:inline">BUY</span>
-              </>
-            )}
-          </>
-        )}
-      </button>
+          </button>
+        </div>
+      </div>
       <SellPopup
         open={sellPopupOpen}
         onClose={() => setSellPopupOpen(false)}

@@ -28,7 +28,7 @@ const OwnedPage = () => {
       {loaded && (
         <>
           {/* Owned NFTs*/}
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-items-center">
             {ownedNFTs?.map((nft) => (
               <NFTCard nft={nft} className="mr-4 mb-4" key={nft.id} />
             ))}

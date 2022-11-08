@@ -5,12 +5,10 @@ import NavBar from "./NavBar";
 const TopBar = () => {
   return (
     <div className="fixed top-0 w-full">
-      <div className="relative flex w-full items-center px-4  py-4 shadow">
+      <div className="relative flex w-full items-center px-4 py-4 shadow">
         <Link href="/">
           <a className="text-lg font-bold flex" style={{justifyContent:"center", alignItems:"center"}}>
             <img src="crypto.png" alt="Crypto Market" style={{height:"50px"}} />
-            &nbsp;
-            DOT Market place
           </a>
         </Link>
         <div className="flex-grow">

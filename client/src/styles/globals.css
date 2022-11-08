@@ -6,12 +6,23 @@ html,
 body {
   @apply m-0 h-screen w-screen overflow-hidden p-0;
   font-family: 'Quicksand', sans-serif;
-  /* background-color: #ebebeb;
-  color: #353535; */
+  /* background-color: #353535;
+  color: #ebebeb; */
 }
 
 #__next {
   @apply h-full w-full;
+}
+
+.button-navbar {
+ transition: all .2s; 
+}
+.button-navbar:hover {
+  border-bottom: solid;
+}
+
+.btn-active-navbar {
+  border-bottom: solid;
 }
 
 .text-white {
@@ -49,7 +60,6 @@ body {
   margin-top: 32px;
   text-align: center;
   font-weight: 900;
-  color: #ffd700;
   font-size: 50px;
 }
 
@@ -61,7 +71,7 @@ body {
   height: 50px;
   border: 2px solid transparent;
   border-radius: 19px;
-  border-color: #ffd700;
+  border-color: black;
   background-color: #fff;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
 }
@@ -97,6 +107,7 @@ body {
   word-wrap: break-word;
   white-space: normal;
 }
+
 .text-input {
   border: 1.5px solid #353535;
 }

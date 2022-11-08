@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>DOT Market place</title>
+        <title>DOT Marketplace</title>
       </Head>
       <div className="relative flex h-full w-full flex-col pt-24">
         <TopBar />

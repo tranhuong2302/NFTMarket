@@ -32,11 +32,11 @@ const SendTransactionPage = () => {
   return (
     <form className="m-4" onSubmit={handleSubmit} style={{ width: "100%" }}>
       <div
-        className="credit-card mx-auto w-full rounded-xl bg-white shadow-lg sm:w-auto lg:w-1/3 sm:h-auto lg:h-2/3"
+        className="credit-card mx-auto w-full rounded-xl bg-white shadow-lg sm:w-auto lg:w-1/3 sm:h-auto lg:h-2/3 bg-gray-200"
         style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}
       >
         <main className="mt-4 p-4">
-          <h1 className="text-center text-xl font-semibold text-gray-700">
+          <h1 className="text-center text-xl font-semibold">
             Send ETH payment
           </h1>
           <div style={{ borderTop: "2px solid #353535", margin: "20px" }}></div>

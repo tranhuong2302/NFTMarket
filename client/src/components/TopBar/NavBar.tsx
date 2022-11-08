@@ -5,13 +5,13 @@ import { ReactNode } from "react";
 
 const NavBar = () => {
   return (
-    <nav className="absolute bottom-1/2 right-1/2 flex translate-y-1/2 translate-x-1/2 transform justify-center">
+    <nav className="flex">
       <NavBarItem href="/">Home</NavBarItem>
       <NavBarItem href="/owned">Owned</NavBarItem>
       <NavBarItem href="/create">Create NFT</NavBarItem>
       <NavBarItem href="/send">Transfers</NavBarItem>
-      <NavBarItem href="/historytransaction">History <br/> Transaction</NavBarItem>
-      <NavBarItem href="/rate">Cryptocurrency <br/> Rates</NavBarItem>
+      <NavBarItem href="/historytransaction">History Transaction</NavBarItem>
+      <NavBarItem href="/rate">Cryptocurrency Rates</NavBarItem>
     </nav>
   );
 };
@@ -30,8 +30,8 @@ const NavBarItem = (props: NavbarItemProps) => {
   return (
     <Link href={href}>
       <a
-        className={classNames("rounded-lg px-4 py-2 font-semibold", {
-          "bg-black text-white": isActive,
+        className={classNames("mx-4 my-2 font-semibold button-navbar", {
+          "btn-active-navbar": isActive,
         })}
         style={{display:"flex", justifyContent:"center", alignItems:"center", textAlign:"center"}}
       >
