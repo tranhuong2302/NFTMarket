@@ -6,8 +6,8 @@ html,
 body {
   @apply m-0 h-screen w-screen overflow-hidden p-0;
   font-family: 'Quicksand', sans-serif;
-  background-color: #ebebeb;
-  color: #353535;
+  /* background-color: #ebebeb;
+  color: #353535; */
 }
 
 #__next {
@@ -96,7 +96,6 @@ body {
 .text-address:hover {
   word-wrap: break-word;
   white-space: normal;
-  height: 70px;
 }
 .text-input {
   border: 1.5px solid #353535;

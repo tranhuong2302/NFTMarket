@@ -10,9 +10,9 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>Crypto Market</title>
+        <title>DOT Market place</title>
       </Head>
-      <div className="relative flex h-full w-full flex-col pt-20">
+      <div className="relative flex h-full w-full flex-col pt-24">
         <TopBar />
         <div className="flex h-full w-full overflow-y-auto overflow-x-hidden px-36">
           {children}

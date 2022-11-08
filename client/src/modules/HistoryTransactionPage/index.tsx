@@ -2,12 +2,79 @@ import classNames from "classnames";
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import useSigner from "state/signer";
-import { convertTimeStamp } from "../../helpers";
+import { convertTimeStamp, minifyAddress, convertFunction } from "../../helpers";
+import MaterialTable from "@material-table/core";
+import { Typography, Alert } from "@mui/material";
+import { ExportCsv, ExportPdf } from "@material-table/exporters";
+const columns = [
+  {
+    field: "hash",
+    title: "TxnHash",
+    width: "20%",
+    render: (row: any) => (
+      <Typography variant="body2" className="text-address rounded leading-tight transition duration-150 ease-in-out">{row.hash}</Typography>
+    ),
+  },
+  {
+    field: "functionName",
+    title: "Function Name",
+    width: "10%",
+    render: (row: any) => (
+      <Typography variant="body2">{convertFunction(row.functionName)}</Typography>
+    ),
+  },
+  {
+    field: "from",
+    title: "From",
+    width: "20%",
+    render: (row: any) => (
+      <Typography variant="body2" className="text-address rounded leading-tight transition duration-150 ease-in-out">{row.from}</Typography>
+    ),
+  },
+  {
+    field: "to",
+    title: "To",
+    width: "20%",
+    render: (row: any) => (
+      <Typography variant="body2" className="text-address rounded leading-tight transition duration-150 ease-in-out">{row.to}</Typography>
+    ),
+  },
+  {
+    field: "timeStamp",
+    title: "Time",
+    width: "10%",
+    render: (row: any) => (
+      <Typography variant="body2">{convertTimeStamp(row.timeStamp)}</Typography>
+    ),
+  },
+  {
+    field: "value",
+    title: "Value (ETH)",
+    width: "10%",
+    render: (row: any) => (
+      <Typography variant="body2">
+        {ethers.utils.formatEther(row.value)} ETH
+      </Typography>
+    ),
+  },
+];
+
+const options: any = {
+  // selection: true,
+  addRowPosition: 'first',
+  actionsColumnIndex: -1,
+  tableLayout: 'fixed',
+  exportMenu: [{
+    label: 'Export PDF',
+    exportFunc: (cols: any, datas: any) => ExportPdf(cols, datas, 'HistoryPDF')
+  }, {
+    label: 'Export CSV',
+    exportFunc: (cols: any, datas: any) => ExportCsv(cols, datas, 'HistoryCSV')
+  }]
+};
 
 const HistoryTransactionPage = () => {
   const { address } = useSigner();
-  const [search, setSearch] = useState("");
-  const [copySuccess, setCopySuccess] = useState("");
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
@@ -18,35 +85,18 @@ const HistoryTransactionPage = () => {
       .then((data) => setTransactions(data.result));
   }, []);
 
-  const convertFunction = (unix_function: any) => {
-    if (unix_function.includes("create")) return "Create";
-    else if (unix_function.includes("buy")) return "Buy";
-    else if (unix_function.includes("list")) return "List";
-    else if (unix_function.includes("cancelListing")) return "Cancel List";
-  };
-
-  const handleChange = (e: any) => {
-    setSearch(e.target.value);
-  };
-
-  const filteredMoedas = transactions.filter((transaction: any) =>
-    transaction.functionName.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const copyToClipboard = (e: any) => {
-    setCopySuccess(e.target.value);
-  };
-
-  if (copySuccess !== "") {
-    navigator.clipboard.writeText(copySuccess);
-  }
-
   return (
     <div
       className={classNames("flex h-full w-full flex-col")}
       style={{ display: "flex", flexDirection: "column" }}
     >
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <MaterialTable
+        title="History Transaction"
+        columns={columns}
+        options={options}
+        data={transactions}
+      />
+      {/* <div style={{ display: "flex", justifyContent: "center" }}>
         <h1 className="his-transaction-text">Function: </h1>
         <form>
           <input
@@ -140,7 +190,7 @@ const HistoryTransactionPage = () => {
             {!filteredMoedas && <p>loading</p>}
           </tbody>
         </table>
-      </div>
+      </div> */}
     </div>
   );
 };

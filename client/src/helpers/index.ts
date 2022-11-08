@@ -24,3 +24,10 @@ export const getResult = (err: string) => {
   err = err.substring(0, position);
   return err;
 }
+
+export const convertFunction = (unix_function: any) => {
+  if (unix_function.includes("create")) return "Create";
+  else if (unix_function.includes("buy")) return "Buy";
+  else if (unix_function.includes("list")) return "List";
+  else if (unix_function.includes("cancelListing")) return "Cancel List";
+};

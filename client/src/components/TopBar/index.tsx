@@ -10,7 +10,7 @@ const TopBar = () => {
           <a className="text-lg font-bold flex" style={{justifyContent:"center", alignItems:"center"}}>
             <img src="crypto.png" alt="Crypto Market" style={{height:"50px"}} />
             &nbsp;
-            Crypto Market
+            DOT Market place
           </a>
         </Link>
         <div className="flex-grow">
