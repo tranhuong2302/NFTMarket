@@ -40,14 +40,6 @@ const columns = [
     ),
   },
   {
-    field: "timeStamp",
-    title: "Time",
-    width: "10%",
-    render: (row: any) => (
-      <Typography variant="body2">{convertTimeStamp(row.timeStamp)}</Typography>
-    ),
-  },
-  {
     field: "value",
     title: "Value (ETH)",
     width: "10%",
@@ -55,6 +47,14 @@ const columns = [
       <Typography variant="body2">
         {ethers.utils.formatEther(row.value)} ETH
       </Typography>
+    ),
+  },
+  {
+    field: "timeStamp",
+    title: "Time",
+    width: "10%",
+    render: (row: any) => (
+      <Typography variant="body2">{convertTimeStamp(row.timeStamp)}</Typography>
     ),
   },
 ];
