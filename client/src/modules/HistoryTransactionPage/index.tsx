@@ -2,9 +2,9 @@ import classNames from "classnames";
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import useSigner from "state/signer";
-import { convertTimeStamp, minifyAddress, convertFunction } from "../../helpers";
+import { convertTimeStamp, convertFunction } from "../../helpers";
 import MaterialTable, { MTableToolbar } from "@material-table/core";
-import { Typography, Alert } from "@mui/material";
+import { Typography } from "@mui/material";
 import { ExportCsv, ExportPdf } from "@material-table/exporters";
 const columns = [
   {
@@ -12,7 +12,7 @@ const columns = [
     title: "TxnHash",
     width: "22%",
     render: (row: any) => (
-      <Typography variant="body2" className="text-address rounded leading-tight transition duration-150 ease-in-out" style={{width:"260px"}}>{row.hash}</Typography>
+      <Typography variant="body2" className="text-address rounded leading-tight transition duration-150 ease-in-out" style={{ width: "260px" }}>{row.hash}</Typography>
     ),
   },
   {

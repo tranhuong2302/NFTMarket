@@ -12,6 +12,8 @@ const HomePage = () => {
   const empty = signer && listedNFTs && listedNFTs.length == 0;
   const loaded = signer && listedNFTs && listedNFTs.length > 0;
 
+  console.log(signer)
+
   return (
     <div className="flex w-full flex-col">
       {notConnected && <EmptyState>Connect your wallet</EmptyState>}

@@ -9,6 +9,8 @@ const SendTransactionPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [txs, setTxs] = useState([]);
+  const [address, setAddress] = useState('');
+  const [eth, setEth] = useState('');
 
   const handleSubmit = async (e: any) => {
     setLoading(true);
@@ -23,11 +25,18 @@ const SendTransactionPage = () => {
         ether: data.get("ether"),
         addr: data.get("addr"),
       });
+      setAddress('');
+      setEth('');
     } catch (error) {
       console.log(error);
     }
     setLoading(false);
   };
+
+  const handleChange = (e: any) => {
+    if(e.target.name === 'addr') setAddress(e.target.value);
+    else if(e.target.name === 'ether') setEth(e.target.value);
+  }
 
   return (
     <form className="m-4" onSubmit={handleSubmit} style={{ width: "100%" }}>
@@ -44,8 +53,10 @@ const SendTransactionPage = () => {
             <div className="my-3">
             <p className="text-lg">Recipient Address: </p>
               <input
-                type="text"
                 name="addr"
+                type="text"
+                value={address}
+                onChange={handleChange}
                 className="input input-bordered rounded-lg px-4 py-2 block w-full focus:outline-none focus:ring text-input"
                 placeholder=""
               />
@@ -55,6 +66,8 @@ const SendTransactionPage = () => {
               <input
                 name="ether"
                 type="text"
+                value={eth}
+                onChange={handleChange}
                 className="input input-bordered rounded-lg px-4 py-2 block w-full focus:outline-none focus:ring text-input"
                 placeholder=""
               />
